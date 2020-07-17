@@ -112,6 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Google Drive
+alias cdgd="cd $HOME/Insync/kevingarubba@gmail.com/Google\ Drive"
+
 # local sites
 export SITES="$HOME/Local Sites"
 
