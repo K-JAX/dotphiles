@@ -72,7 +72,7 @@ alias zshrc="sudo vim ~/.zshrc"
 alias src="source ~/.zshrc"
 
 # update external dotfiles including zshrc
-alias updot="cd ~/.dotfiles/ && git commit -a -m 'Self-automated: updating dot files.' && git push && cd $OLDPWD"
+alias updot="cd ~/.dotfiles/ && git pull && git commit -a -m 'Self-automated: updating dot files.' && git push && cd $OLDPWD"
 
 # Welcome message
 figlet -f banner "Welcome $(whoami)"
