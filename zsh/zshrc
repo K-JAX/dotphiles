@@ -119,7 +119,7 @@ alias cdgd="cd $HOME/Insync/kevingarubba@gmail.com/Google\ Drive"
 export SITES="$HOME/Local Sites"
 
 # Capezza Hill
-alias cdch='cd $SITES/capezzahill'
+alias cdch='cd $SITES/capezzahill/app/public'
 
 # Success Kit
 alias cdsk='$SITES/successkit/app/public'
