@@ -63,8 +63,18 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# shortcuts for quickly interacting with zshrc
+
+# edit zshrc
+alias zshrc="sudo vim ~/.zshrc"
+
+# reload zshrc
 alias src="source ~/.zshrc"
 
+# update external dotfiles including zshrc
+alias updot="cd ~/.dotfiles/ && git commit -a -m 'Self-automated: updating dot files.' && git push && cd $OLDPWD"
+
+# Welcome message
 figlet -f banner "Welcome $(whoami)"
 
 # Which plugins would you like to load?
@@ -82,10 +92,6 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-export NVM_DIR="$HOME/.nvm" 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion 
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -106,5 +112,11 @@ export NVM_DIR="$HOME/.nvm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# local sites
+export SITES="$HOME/Local Sites"
 
-# newer test code
+# Success Kit
+alias cdsk='$SITES/successkit/app/public'
+
+# ICM
+alias cdi='$SITES/icm'
