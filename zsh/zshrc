@@ -86,6 +86,10 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# node, nvm, npm
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
