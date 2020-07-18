@@ -120,7 +120,11 @@ alias cdgd='cd $GDRIVE'
 alias cdproj='cd $GDRIVE/docs/proj'
 
 # Code Projects
-alias cdcode='cd $GDRIVE/docs/proj/code'
+export CODEPROJECTS="$GDRIVE/docs/proj/code"
+cdcode='cd $CODEPROJECTS'
+
+# d3.js projects temporary shortcut
+alias cdd3='cd $CODEPROJECTS/playground/javascript/d3'
 
 # local sites
 export SITES="$HOME/Local Sites"
