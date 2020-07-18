@@ -113,7 +113,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Google Drive
-alias cdgd="cd $HOME/Insync/kevingarubba@gmail.com/Google\ Drive"
+export GDRIVE="$HOME/Insync/kevingarubba@gmail.com/Google Drive"
+alias cdgd='cd $GDRIVE'
+
+# Projects
+alias cdproj='cd $GDRIVE/docs/proj'
+
+# Code Projects
+alias cdcode='cd $GDRIVE/docs/proj/code'
 
 # local sites
 export SITES="$HOME/Local Sites"
