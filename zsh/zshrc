@@ -125,7 +125,7 @@ alias cdproj='cd $GDRIVE/docs/proj'
 
 # Code Projects
 export CODEPROJECTS="$GDRIVE/docs/proj/code"
-cdcode='cd $CODEPROJECTS'
+alias cdcode='cd $CODEPROJECTS'
 
 # d3.js projects temporary shortcut
 alias cdd3='cd $CODEPROJECTS/playground/javascript/d3'
