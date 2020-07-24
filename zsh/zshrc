@@ -66,7 +66,7 @@ ZSH_THEME="robbyrussell"
 # shortcuts for quickly interacting with zshrc
 
 # edit zshrc
-alias zshrc="sudo vim ~/.zshrc"
+alias zshrc="vim ~/.zshrc"
 
 # reload zshrc
 alias src="source ~/.zshrc"
@@ -74,7 +74,6 @@ alias src="source ~/.zshrc"
 # update external dotfiles including zshrc
 alias updot='cd ~/.dotfiles/ && git pull && git commit -a -m "Self-automated: updating dot files." && git push && cd $OLDPWD'
 
-#test
 # Welcome message
 figlet -f banner "Welcome $(whoami)"
 
