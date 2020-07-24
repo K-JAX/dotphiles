@@ -127,6 +127,12 @@ alias cdproj='cd $GDRIVE/docs/proj'
 export CODEPROJECTS="$GDRIVE/docs/proj/code"
 alias cdcode='cd $CODEPROJECTS'
 
+# c language playground
+alias cdc='cd $CODEPROJECTS/playground/c'
+
+# python playground
+alias cdpy='cd $CODEPROJECTS/playground/python'
+
 # d3.js projects temporary shortcut
 alias cdd3='cd $CODEPROJECTS/playground/javascript/d3'
 
