@@ -141,3 +141,6 @@ alias cdsk='$SITES/successkit/app/public'
 
 # ICM
 alias cdi='$SITES/icm'
+
+# 5th Wheel Jobs
+alias cd5='$SITES/5th-wheel-jobs/app/public/wp-content/themes/fifthwheel'
