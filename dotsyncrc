@@ -82,6 +82,7 @@ zsh/zshrc
 CortexOne               git=ANY                            #git repo, pull from anywhere and link a custom dotfile
 cortex-slim		git=ANY
 DESKTOP-CHSOEBO		git=CortexOne
+CortexOne-Fedora		git=CortexOne
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
 #host3.example.com               git=ANY                                                #git repo, pull from anywhere
 #host4.example.com               git=host5.example.com                                  #git repo, pull from host5
