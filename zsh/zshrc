@@ -92,6 +92,11 @@ source ~/.nvm/nvm.sh
 
 # User configuration
 
+# setting theme based on mood / time of day
+alias pro='gsettings set org.gnome.desktop.interface gtk-theme "Simply_Circles_Blue_Dark_Envolved" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Blue-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oreo_blue_cursors"'
+alias hax='gsettings set org.gnome.desktop.interface gtk-theme "hacking_parrot_OS + ico Sovietec-OS  9.0001.09" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Cyan-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oxy-neon"'
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -143,10 +148,13 @@ export SITES="$HOME/Local Sites"
 alias cdch='cd $SITES/capezzahill/app/public'
 
 # Success Kit
-alias cdsk='$SITES/successkit/app/public'
+alias cdsk='$SITES/successkit/app/public/wp-content/themes/'
 
 # ICM
 alias cdi='$SITES/icm'
 
 # 5th Wheel Jobs
 alias cd5='$SITES/5th-wheel-jobs/app/public/wp-content/themes/fifthwheel'
+
+# Form and Light
+alias cdfl='$SITES/form-and-light/app/public/wp-content/themes/'
