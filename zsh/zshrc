@@ -86,9 +86,27 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Turns off "!" becoming previous statement in bash.. super annoying for me sometimes
+unsetopt BANG_HIST 
+
+# Set SELinux setenforce to 0.. This is a major headache in mounting container volumes.
+#setenforce 0
+
+# User homespace bin
+PATH=$PATH:$HOME/bin
+ 
 # node, nvm, npm
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
+
+# yarn package manager bin
+export PATH="$(yarn global bin):$PATH"
+
+# composer package manager bin
+export PATH=~/.config/composer/vendor/bin:$PATH
+
+# blender 3d app program
+export PATH=/var/lib/flatpak/app/org.blender.Blender/x86_64/stable/c8ca67e58dbb88f64d3de28516f0e5a6b4dcfaa9729346702325a21929d68235/files/blender:$PATH
 
 # User configuration
 
@@ -96,6 +114,9 @@ source ~/.nvm/nvm.sh
 alias pro='gsettings set org.gnome.desktop.interface gtk-theme "Simply_Circles_Blue_Dark_Envolved" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Blue-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oreo_blue_cursors"'
 alias hax='gsettings set org.gnome.desktop.interface gtk-theme "hacking_parrot_OS + ico Sovietec-OS  9.0001.09" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Cyan-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oxy-neon"'
 
+# Some quick brightness commands (only works on CortexOne setup for now
+alias br1='xrandr --output HDMI-1 --brightness' 
+alias br2='xrandr --output HDMI-2 --brightness'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -111,6 +132,15 @@ alias hax='gsettings set org.gnome.desktop.interface gtk-theme "hacking_parrot_O
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+# Backup Debian Server on Linode
+#alias sshkjax='ssh kjax@45.79.253.64'
+
+# Test server on Digital Ocean
+#alias sshtest='ssh root@134.209.208.154'
+
+#2nd test of ubuntu server on Digital Ocean
+#alias sshub='ssh kjax@206.189.238.18'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -141,6 +171,9 @@ alias cdpy='cd $CODEPROJECTS/playground/python'
 # d3.js projects temporary shortcut
 alias cdd3='cd $CODEPROJECTS/playground/javascript/d3'
 
+# podman testing
+alias cdpod='cd $CODEPROJECTS/playground/docker/podman/test'
+
 # local sites
 export SITES="$HOME/Local Sites"
 
@@ -152,6 +185,7 @@ alias cdsk='$SITES/successkit/app/public/wp-content/themes/'
 
 # ICM
 alias cdi='$SITES/icm'
+alias cdis='$GDRIVE/docs/biz/employer-client-work/icm/media/social/'
 
 # 5th Wheel Jobs
 alias cd5='$SITES/5th-wheel-jobs/app/public/wp-content/themes/fifthwheel'
