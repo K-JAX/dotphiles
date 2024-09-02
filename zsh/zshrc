@@ -77,6 +77,10 @@ alias updot='cd ~/.dotfiles/ && git pull && git commit -a -m "Self-automated: up
 # Welcome message
 figlet -f banner "Welcome $(whoami)"
 
+# oh my posh
+# eval "$(oh-my-posh --init --shell zsh)" 
+eval "$(oh-my-posh --init --shell zsh --config /home/kjax/.poshthemes/clean-detailed.omp.json)"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -190,5 +194,3 @@ alias cdis='$GDRIVE/docs/biz/employer-client-work/icm/media/social/'
 # 5th Wheel Jobs
 alias cd5='$SITES/5th-wheel-jobs/app/public/wp-content/themes/fifthwheel'
 
-# Form and Light
-alias cdfl='$SITES/form-and-light/app/public/wp-content/themes/'
