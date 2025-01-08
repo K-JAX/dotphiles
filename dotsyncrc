@@ -81,13 +81,13 @@ zsh/zshrc
 [hosts]
 CortexOne               git=NONE                            #git repo, pull from anywhere and link a custom dotfile
 cortex-stallion			git=NONE
-macos                   git=NONE
+macos                   git=ANY
 DESKTOP-CHSOEBO			git=CortexOne
 CortexOne-Fedora		git=CortexOne
 cortex-one-fedora		git=CortexOne
 cortex-stallion-fedora  	git=cortex-stallion
-Kevin-Garubbas-Macbook-Pro.local	git=macos
-Kevin-Garubbas-MacBook-Pro-2.local	git=macos
+Kevin-Garubbas-Macbook-Pro.local	git=Kevin-Garubbas-MacBook-Pro-2.local
+Kevin-Garubbas-MacBook-Pro-2.local	git=ANY
 #host2.example.com              git=ANY                                                #git repo, pull from anywhere
 #host3.example.com              git=ANY                                                #git repo, pull from anywhere
 #host4.example.com              git=host5.example.com                                  #git repo, pull from host5

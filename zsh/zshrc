@@ -8,7 +8,30 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+
+# oh-my-posh
+## (with default theme)
+#eval "$(oh-my-posh init zsh)"
+
+## Aliens theme
+#eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/aliens.omp.json)"
+
+## Atomic Theme
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/atomic.omp.json)"
+
+## Blueish theme
+#eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/blueish.omp.json)"
+
+## catpuccin
+#eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/catppuccin.omp.json)" 
+
+## cert theme
+#eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/cert.omp.json)"
+
+## clean detailed
+#eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/clean-detailed.omp.json)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -23,17 +46,16 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -45,6 +67,9 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -63,24 +88,6 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# shortcuts for quickly interacting with zshrc
-
-# edit zshrc
-alias zshrc="vim ~/.zshrc"
-
-# reload zshrc
-alias src="source ~/.zshrc"
-
-# update external dotfiles including zshrc
-alias updot='cd ~/.dotfiles/ && git pull && git commit -a -m "Self-automated: updating dot files." && git push && cd $OLDPWD'
-
-# Welcome message
-figlet -f banner "Welcome $(whoami)"
-
-# oh my posh
-# eval "$(oh-my-posh --init --shell zsh)" 
-eval "$(oh-my-posh --init --shell zsh --config /home/kjax/.poshthemes/clean-detailed.omp.json)"
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -90,37 +97,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Turns off "!" becoming previous statement in bash.. super annoying for me sometimes
-unsetopt BANG_HIST 
-
-# Set SELinux setenforce to 0.. This is a major headache in mounting container volumes.
-#setenforce 0
-
-# User homespace bin
-PATH=$PATH:$HOME/bin
- 
-# node, nvm, npm
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
-
-# yarn package manager bin
-export PATH="$(yarn global bin):$PATH"
-
-# composer package manager bin
-export PATH=~/.config/composer/vendor/bin:$PATH
-
-# blender 3d app program
-export PATH=/var/lib/flatpak/app/org.blender.Blender/x86_64/stable/c8ca67e58dbb88f64d3de28516f0e5a6b4dcfaa9729346702325a21929d68235/files/blender:$PATH
-
 # User configuration
-
-# setting theme based on mood / time of day
-alias pro='gsettings set org.gnome.desktop.interface gtk-theme "Simply_Circles_Blue_Dark_Envolved" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Blue-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oreo_blue_cursors"'
-alias hax='gsettings set org.gnome.desktop.interface gtk-theme "hacking_parrot_OS + ico Sovietec-OS  9.0001.09" && gsettings set org.gnome.desktop.interface icon-theme "Simply-Cyan-Circles" && gsettings set org.gnome.desktop.interface cursor-theme "oxy-neon"'
-
-# Some quick brightness commands (only works on CortexOne setup for now
-alias br1='xrandr --output HDMI-1 --brightness' 
-alias br2='xrandr --output HDMI-2 --brightness'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -137,14 +114,11 @@ alias br2='xrandr --output HDMI-2 --brightness'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Backup Debian Server on Linode
-#alias sshkjax='ssh kjax@45.79.253.64'
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
-# Test server on Digital Ocean
-#alias sshtest='ssh root@134.209.208.154'
-
-#2nd test of ubuntu server on Digital Ocean
-#alias sshub='ssh kjax@206.189.238.18'
+alias python2=$(pyenv root)/versions/2.7.18/bin/python
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -155,42 +129,111 @@ alias br2='xrandr --output HDMI-2 --brightness'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Google Drive
-export GDRIVE="$HOME/Insync/kevingarubba@gmail.com/Google-Drive"
-alias cdgd='cd $GDRIVE'
+echo -e '\033[1;36m.zshrc loaded\033[0m'
 
-# Projects
-alias cdproj='cd $GDRIVE/docs/proj'
+source "$HOME/.wp/wp-completion.bash"
 
-# Code Projects
-export CODEPROJECTS="$GDRIVE/docs/proj/code"
-alias cdcode='cd $CODEPROJECTS'
+# mysql path
+export PATH=${PATH}:/usr/local/mysql/bin
 
-# c language playground
-alias cdc='cd $CODEPROJECTS/playground/c'
+# pnpm
+export PNPM_HOME="/Users/kevingarubba/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
 
-# python playground
-alias cdpy='cd $CODEPROJECTS/playground/python'
+# add rust to path
+export PATH="$HOME/.cargo/bin:$PATH"
 
-# d3.js projects temporary shortcut
-alias cdd3='cd $CODEPROJECTS/playground/javascript/d3'
+# coreutils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# podman testing
-alias cdpod='cd $CODEPROJECTS/playground/docker/podman/test'
+# DBngin exports
+# export PATH=/Users/Shared/DBngin/mysql/5.7.23/bin:$PATH
+export PATH=/Users/Shared/DBngin/mysql/8.0.27/bin:$PATH
 
-# local sites
-export SITES="$HOME/Local Sites"
+# Copy ssh password to clipboard
+# alias cpssh="pbcopy < ~/.ssh/.secrets"
+alias cpssh="cat ~/.ssh/.psecrets | tr -d '\n\r' | pbcopy"
+alias cpmysql="cat ~/.ssh/.mysql-secret | tr -d '\n\r' | pbcopy"
+alias cppat="cat ~/.myPAT | tr -d '\n\r' | pbcopy"
 
-# Capezza Hill
-alias cdch='cd $SITES/capezzahill/app/public'
+# Get the weather
+#alias weather="curl https://wttr.in"
+weather(){
+  if [ -z "$1" ]; then
+    curl https://wttr.in
+  else
+    curl https://wttr.in/$1
+  fi
+}
 
-# Success Kit
-alias cdsk='$SITES/successkit/app/public/wp-content/themes/'
+alias neovim="nvim"
+# neovim session path
+export SESH=$HOME/.config/nvim/sessions
+alias cdsesh="cd $SESH"
+alias cds="cd $SESH"
 
-# ICM
-alias cdi='$SITES/icm'
-alias cdis='$GDRIVE/docs/biz/employer-client-work/icm/media/social/'
+# Get Digital Ocean domain A record
+#getDomainA() {
+# 	doctl compute domain records list "$1" | 
+#	grep -E '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' | 
+#	grep '@' |
+#	awk '{print $4}'
+#}
+# Get Digital Ocean Droplet by Domain's A Record
+#getDropletByDomainA() {
+#	IP_ADDRESS=$(getDomainA "$1")
+#	doctl compute droplet list | grep "$IP_ADDRESS" | awk '{print $2}'
+#}
 
-# 5th Wheel Jobs
-alias cd5='$SITES/5th-wheel-jobs/app/public/wp-content/themes/fifthwheel'
+#export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+
+# nvm
+ export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# node
+export NODE_PATH=$(npm root -g)
+
+# python
+export PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"
+
+# get host of provided domain ie. - getHost [DOMAIN_NAME]
+getHost() {
+    local IP_ADDRESS=$(dig +short "$1" A | tail -n 1)
+    if [ -z "$IP_ADDRESS" ]; then
+        echo "No IP address found for $1" 
+        return 1
+    fi
+    local HOST=$(dig +short -x "$IP_ADDRESS" | sed 's/\.$//')
+    echo "$HOST"
+}
+
+# set $today variable
+TODAY=$(date +%Y-%m-%d)
+
+# asana access
+export ASANA_TOKEN=2/1203862810312508/1207992360229091:5549a6f9f841f190e9daac17e8d7427a
+
+
+# Herd injected PHP binary.
+#export PATH="/Users/kevingarubba/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.2 configuration.
+#export HERD_PHP_82_INI_SCAN_DIR="/Users/kevingarubba/Library/Application Support/Herd/config/php/82/"
+
+
+# auto-suggest
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# auto-compolete
+#source $HOME/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+
+# zsh syntax highlighting
+#echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
